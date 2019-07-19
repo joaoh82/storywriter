@@ -1,8 +1,8 @@
 omg: 1
 info:
   version: 1.0.0
-  title: Story writer microservice
-  description: Services tells a story based on a template
+  title: Storywriter microservice
+  description: Services tells a story based on a template and input words
   license:
     name: Apache 2.0
     url: https://opensource.org/licenses/Apache-2.0

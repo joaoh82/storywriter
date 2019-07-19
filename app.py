@@ -6,21 +6,29 @@ import re
 
 app = Flask(__name__)
 
+
 @app.route('/story', methods=['POST'])
 def story():
     req_data = request.get_json()
     words = req_data['words'] if 'words' in req_data else []
     template = req_data['template']
 
+    # Calling separate function to keep resonsabilities single and simple
+    story = createStory(template, words)
+
+    return jsonify({'story': story})
+
+# createStory replaces template placeholders with appropriate words
+def createStory(template, words):
     matches = re.findall("&[0-9]{1}", template)
     if len(matches) == len(words):
         for idx in range(len(matches)):
             template = template.replace(matches[idx], words[int(matches[idx].replace("&", ""))-1])
     else:
         raise Exception("wrong number of arguments")
+    return template
 
-    return jsonify({'story': template})
-
+# Healthcheck endpoint
 @app.route('/health', methods=['GET'])
 def health():
     return 'ok', 200
