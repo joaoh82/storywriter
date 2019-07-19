@@ -15,7 +15,8 @@ Services tells a story based on a template and input words
 ## Testing
 You can test your microservice with `omg run`:
 
-```$ omg run story -a template='On a fine &2 he saw &1.' -a words='["a sparrow", "morning"]'
+```
+$ omg run story -a template='On a fine &2 he saw &1.' -a words='["a sparrow", "morning"]'
 ✔ Ran action: `story` with output: "On a fine morning he saw a sparrow."```
 
 ```$ omg run story -a template='Afterwards he ate &1 & &2.' -a words='["an apple", "two bananas"]'
@@ -23,4 +24,3 @@ You can test your microservice with `omg run`:
 
 ```$ omg run story -a template='No words.'
 ✔ Ran action: `story` with output: "No words."```
-If you have any questions please do not hesitate to get in touch with us.
