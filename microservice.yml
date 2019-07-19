@@ -1,0 +1,32 @@
+omg: 1
+info:
+  version: 1.0.0
+  title: Story writer microservice
+  description: Services tells a story based on a template
+  license:
+    name: Apache 2.0
+    url: https://opensource.org/licenses/Apache-2.0
+lifecycle:
+  startup:
+    command: ["flask", "run", "--host=0.0.0.0"]
+actions:
+  story:
+    http:
+      path: /story
+      method: post
+      port: 8080
+    arguments:
+      words:
+        type: list
+        required: false
+        in: requestBody
+      template:
+        type: string
+        required: true
+        in: requestBody
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        story:
+          type: string
