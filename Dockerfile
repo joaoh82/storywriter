@@ -11,6 +11,6 @@ RUN pip install -r /app/requirements.txt
 
 COPY app.py /app
 
-ENTRYPOINT [ "python" ]
+# ENTRYPOINT [ "python" ]
 
-CMD [ "app.py" ]
+# CMD [ "app.py" ]

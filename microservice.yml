@@ -8,7 +8,11 @@ info:
     url: https://opensource.org/licenses/Apache-2.0
 lifecycle:
   startup:
-    command: ["flask", "run", "--host=0.0.0.0"]
+    command: ["python", "app.py"]
+health:
+  http:
+    path: /health
+    port: 8080
 actions:
   story:
     http:
